@@ -1,0 +1,37 @@
+matrix:
+  include:
+  - language: ruby
+    name: YAML Linting (rvm 2.7)
+    rvm: 2.7
+    before_install:
+    - git clone https://github.com/TravisToolbox/yaml-lint
+    install:
+    - "./yaml-lint/install.sh"
+    script:
+    - "./yaml-lint/scan.sh"
+  - language: bash
+    name: Shellcheck (Bash)
+    os: linux
+    arch: arm64-graviton2
+    before_install:
+    - git clone https://github.com/TravisToolbox/shellcheck
+    install:
+    - "./shellcheck/install.sh"
+    script:
+    - "./shellcheck/scan.sh"
+  - language: ruby
+    name: Link Checking (rvm 2.7)
+    rvm: 2.7
+    env:
+    - WHITELIST="https://img.shields.io"
+    - EXCLUDE_FILES="CHANGELOG.md"
+    before_install:
+    - git clone https://github.com/TravisToolbox/awesomebot
+    install:
+    - "./awesomebot/install.sh"
+    script:
+    - "./awesomebot/scan.sh"
+notifications:
+  email: false
+  slack:
+    secure: CKIShd47TcGjpueBDpwoV2mlae6f4RQqx9suhBT/rlW05iMeVItKnj7W1qNBMkAdc00+jnUYnz84Dxj1SzU0tHx9wp+n6QIGLRwvtc7iSEmGSKaH4o3t+iPrFeQfihYphphoxH1VopkLAnzM2cT9WwwDbaECCau2lnUqVw1WfR3L1xw0ocjtiFRAHn9QbbLz+p/m3UPuMmJcapTAveQDkvcrlapepwqawD+0SyFj2p1drW7lB0hwbrppl9fsjOgiNCn6rdDxvOE9r2sgmgN+7KpwKMZHrqDS8GqeCk5utImtHqZvkCex7dwxi4bR9PgUpQDFmagH5MTLmuRQmzsAPyy37XGRSQAYt+b2f0ZaAO3lpPEIzaFQzlpb7YkiHfk0hnuxlvdBoaOAha9qioH/pw5hTsK+Bqu6ynz44OsLnkUUsKx8R2QLAiOhiyVE2T7GIZrP/voZwg1N1d/Qj3zO6CLzc7GoKnLrL0TebwtSkufZ8uTwWeGJz1PrJujTyNGGVqKSnQyd1jc+b/+rBLkClhNqtqG0VxRJYzSBfYEgNxYLHDb2wQNjexr6gQEYlVEfd/Gg7pjO2+inOVjjTOwxSL2OqXgcaUDiMlVbGCS3lZE/lItVsvhU34JXVAUrZy3RtH5RiQeEnqTeo/Zp0ChfoTFnBXGd0UdhvNNttfG6tFs=
