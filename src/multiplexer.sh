@@ -24,6 +24,7 @@ FILTER_PATH="/usr/local/sbin"
 # ---------------------------------------------------------------------------------------- #
 # A wrapper to check if the script is being run in a terminal or not.                      #
 # ---------------------------------------------------------------------------------------- #
+
 function in_terminal
 {
     [[ -t 1 ]] && return 0 || return 1;
@@ -34,6 +35,7 @@ function in_terminal
 # ---------------------------------------------------------------------------------------- #
 # Show output only if we are running in a terminal, but always log the message.            #
 # ---------------------------------------------------------------------------------------- #
+
 function debug()
 {
     local message="${1:-}"
@@ -76,6 +78,7 @@ function run_filters()
 # ---------------------------------------------------------------------------------------- #
 # The main function where all of the heavy lifting and script config is done.              #
 # ---------------------------------------------------------------------------------------- #
+
 function main()
 {
     #
@@ -92,12 +95,7 @@ function main()
     declare -g IP="${1}"
 
     #
-    # Turn off case sensitivity
-    #
-    shopt -s nocasematch
-
-    #
-    # Country level blocking
+    # Run the actual filters
     #
     run_filters
 
