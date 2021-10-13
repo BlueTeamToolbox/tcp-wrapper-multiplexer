@@ -7,7 +7,9 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 ### [Unreleased](https://github.com/SecOpsToolbox/tcp-wrapper-multiplexer/compare/v0.1.1...HEAD)
 
-- Add a new travis job to run github-linguist for information only [`[head]`](https://github.com/SecOpsToolbox/tcp-wrapper-multiplexer/commit/)
+- rebrand [`[head]`](https://github.com/SecOpsToolbox/tcp-wrapper-multiplexer/commit/)
+
+- Add a new travis job to run github-linguist for information only [`[b2329b6]`](https://github.com/SecOpsToolbox/tcp-wrapper-multiplexer/commit/b2329b6104511a312dc61e8681daa633b0689cec)
 
 ### [v0.1.0](https://github.com/SecOpsToolbox/tcp-wrapper-multiplexer/releases/v0.1.0)
 
